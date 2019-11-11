@@ -19,11 +19,11 @@ public class Cigarette {
         return this._ingredients.size() == 2;
     }
 
-    public synchronized void roll() throws InterruptedException {
+    public void roll() throws InterruptedException {
         Thread.sleep((1 + this._rand.nextInt(5)) * 1000);
     }
 
-    public synchronized void smoke() throws InterruptedException {
+    public void smoke() throws InterruptedException {
         Thread.sleep((1 + this._rand.nextInt(5)) * 1000);
         this._ingredients.clear();
     }
@@ -38,9 +38,5 @@ public class Cigarette {
             }
         }
         return null;
-    }
-
-    public boolean isEmpty() {
-        return this._ingredients.isEmpty();
     }
 }

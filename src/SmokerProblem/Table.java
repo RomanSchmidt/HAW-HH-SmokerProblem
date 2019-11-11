@@ -29,8 +29,7 @@ public class Table {
     }
 
     public void addIngredient(Ingredient ingredient) {
-        this._cigarette.addIngredient(ingredient);
-        if (this._cigarette.isReadyToBeTaken()) {
+        if (this._cigarette.addIngredient(ingredient) && this._cigarette.isReadyToBeTaken()) {
             this._smoker.forEach(Smoker::wake);
         }
     }

@@ -22,14 +22,19 @@ public class Smoker extends Thread {
         }
     }
 
-    private synchronized void _take() throws InterruptedException {
+    private void _take() throws InterruptedException {
         this._cigarette = this._table.takeCigarette(this._ingredient);
         if (this._cigarette != null) {
+            System.out.println(this.getName()+": taking cigarette.");
             this._smoke();
             this._cigarette = null;
         } else {
-            this.wait();
+            this._pause();
         }
+    }
+
+    public synchronized void _pause() throws InterruptedException {
+        this.wait();
     }
 
     public synchronized void wake() {
