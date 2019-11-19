@@ -3,6 +3,10 @@ package SmokerProblem;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Zutaten aus denen eine Zigarette besteht.
+ * Kann die eigene Länge ermitteln und zufällig einen der Werte liefern.
+ */
 public enum Ingredient {
     Tobacco("Tobacco"),
     Paper("Paper"),
