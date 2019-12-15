@@ -37,7 +37,7 @@ public class Table {
 
     /**
      * Jemand fügt der Zigarette eine Zutat hinzu.
-     * Wenn sie fertig ist um genommen zu werden werden die Smoker geweckt.
+     * Wenn sie fertig ist um genommen zu werden, werden alle geweckt.
      */
     public synchronized void addIngredientsToCigarette(Agent agent) throws InterruptedException {
         while (this._cigarette != null) {

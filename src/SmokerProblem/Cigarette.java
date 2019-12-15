@@ -5,10 +5,8 @@ import java.util.Random;
 
 /**
  * Die Zigarette ist ein Kontainer für die Zutaten.
- * - Sie blockt das befüllen.
- * - Sie hält den Thread auf, wenn sie geraucht und gerollt wird.
- * - Sie stellt sicher, dass zuverlässig erkannt wird, ob Zutaten fehlen, ohne, dass jemand da zwischen etwas
- *   hinzufügen kann.
+ * Sie ermöglicht das Befüllen.
+ * Im Grunde ist sie nur ein Kontainer, verbraucht jedoch Zeit, wenn man sie rollt und raucht.
  */
 public class Cigarette {
     private final Random _rand = new Random();

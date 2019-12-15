@@ -6,7 +6,7 @@ public class Smoker extends Thread {
     private Cigarette _cigarette;
 
     /**
-     * Eine Referenzu zum Tisch ist notwendig um die Zigarette zu nehmen und am Tisch bescheid zu geben, wenn man wieder
+     * Eine Referenz zum Tisch ist notwendig um die Zigarette zu nehmen und am Tisch bescheid zu geben, wenn man wieder
      * bereit ist.
      */
     Smoker(String name, Ingredient ingredient, Table table) {
@@ -15,12 +15,15 @@ public class Smoker extends Thread {
         this._table = table;
     }
 
+    /**
+     * die eine Zutat, die der Smoker hat
+     */
     public Ingredient getIngredient() {
         return this._ingredient;
     }
 
     /**
-     * Der Smoker versucht eine Zigarette zu nehmen. Danach meldet er am Tisch, dass er fertig ist.
+     * Der Smoker nimmt die Zigarette, sie zu rauchen und danach meldet er am Tisch, dass er fertig ist.
      */
     public void run() {
         try {
@@ -30,7 +33,7 @@ public class Smoker extends Thread {
                 this._table.smokerDone();
             }
         } catch (InterruptedException ex) {
-            System.err.println("\t" + this.getName() + " interrupted!");
+            System.err.println("\t" + this + " interrupted!");
         }
     }
 
@@ -47,12 +50,12 @@ public class Smoker extends Thread {
      */
     private void _smoke() throws InterruptedException {
         this._cigarette.addIngredient(this._ingredient);
-        System.err.println("\t" + this.getName() + ": start rolling");
+        System.err.println("\t" + this + ": start rolling");
         this._cigarette.roll();
-        System.err.println("\t" + this.getName() + ": stop rolling");
-        System.err.println("\t" + this.getName() + ": start smoking");
+        System.err.println("\t" + this + ": stop rolling");
+        System.err.println("\t" + this + ": start smoking");
         this._cigarette.smoke();
-        System.err.println("\t" + this.getName() + ": stop smoking");
+        System.err.println("\t" + this + ": stop smoking");
         this._cigarette = null;
     }
 }
