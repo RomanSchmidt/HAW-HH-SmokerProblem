@@ -5,6 +5,10 @@ public class Smoker extends Thread {
     private final Table _table;
     private Cigarette _cigarette;
 
+    /**
+     * Eine Referenzu zum Tisch ist notwendig um die Zigarette zu nehmen und am Tisch bescheid zu geben, wenn man wieder
+     * bereit ist.
+     */
     Smoker(String name, Ingredient ingredient, Table table) {
         this.setName(name);
         this._ingredient = ingredient;
@@ -15,6 +19,9 @@ public class Smoker extends Thread {
         return this._ingredient;
     }
 
+    /**
+     * Der Smoker versucht eine Zigarette zu nehmen. Danach meldet er am Tisch, dass er fertig ist.
+     */
     public void run() {
         try {
             while (!isInterrupted()) {
@@ -32,6 +39,12 @@ public class Smoker extends Thread {
         return this.getName();
     }
 
+    /**
+     * Das Rauchen ist nicht blockierend für andere Raucher.
+     * - Es wird die Zutat hinzugefügt
+     * - Die Zigarette wird gerollt
+     * - Die Zigarette wird geraucht
+     */
     private void _smoke() throws InterruptedException {
         this._cigarette.addIngredient(this._ingredient);
         System.err.println("\t" + this.getName() + ": start rolling");

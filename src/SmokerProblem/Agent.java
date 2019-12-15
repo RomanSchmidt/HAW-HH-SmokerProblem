@@ -3,6 +3,10 @@ package SmokerProblem;
 public class Agent extends Thread {
     private final Table _table;
 
+    /**
+     * Der Agent muss eine Referenz auf den Tisch haben.
+     * Der Name dient dazu die Ausgaben eindeutig einem Thread zu ordnen zu können.
+     */
     Agent(String name, Table table) {
         this._table = table;
         this.setName(name);

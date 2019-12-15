@@ -3,6 +3,13 @@ package SmokerProblem;
 import java.util.HashSet;
 import java.util.Random;
 
+/**
+ * Die Zigarette ist ein Kontainer für die Zutaten.
+ * - Sie blockt das befüllen.
+ * - Sie hält den Thread auf, wenn sie geraucht und gerollt wird.
+ * - Sie stellt sicher, dass zuverlässig erkannt wird, ob Zutaten fehlen, ohne, dass jemand da zwischen etwas
+ *   hinzufügen kann.
+ */
 public class Cigarette {
     private final Random _rand = new Random();
     private final HashSet<Ingredient> _ingredients = new HashSet<>();
