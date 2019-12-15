@@ -7,7 +7,7 @@ public class Cigarette {
     private final Random _rand = new Random();
     private final HashSet<Ingredient> _ingredients = new HashSet<>();
 
-    public synchronized boolean addIngredient(Ingredient ingredient) {
+    public boolean addIngredient(Ingredient ingredient) {
         if(this._ingredients.size() == 3) {
             return false;
         }
@@ -28,7 +28,7 @@ public class Cigarette {
         this._ingredients.clear();
     }
 
-    public synchronized Ingredient getMissingIngredient() {
+    public Ingredient getMissingIngredient() {
         if (this.isReadyToBeTaken()) {
             for (int i = 0; i < Ingredient.size; ++i) {
                 Ingredient ingredient = Ingredient.values()[i];

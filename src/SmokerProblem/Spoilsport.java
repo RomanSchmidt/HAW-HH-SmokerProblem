@@ -9,14 +9,13 @@ public class Spoilsport extends Thread {
         this._table = table;
     }
 
-    public synchronized void run() {
+    public void run() {
         try {
             Thread.sleep(this._waitTime);
         } catch (InterruptedException ex) {
-            // Interrupt aufgetreten --> fertig
             System.err.println(this.getName() + " wurde erfolgreich interrupted!");
         }
-        System.out.println("time is over");
+        System.err.println("time is over");
 
         this._table.timeIsOver();
     }
