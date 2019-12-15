@@ -14,7 +14,7 @@ public class Agent extends Thread {
 
     public void run() {
         try {
-            while(!isInterrupted()) {
+            while(!this.isInterrupted()) {
                 this._table.addIngredientsToCigarette(this);
             }
         } catch (InterruptedException ex) {

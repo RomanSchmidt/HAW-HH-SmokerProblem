@@ -27,7 +27,7 @@ public class Smoker extends Thread {
      */
     public void run() {
         try {
-            while (!isInterrupted()) {
+            while (!this.isInterrupted()) {
                 this._cigarette = this._table.takeCigarette(this);
                 this._smoke();
                 this._table.smokerDone();
